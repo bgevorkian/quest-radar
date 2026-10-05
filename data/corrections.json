@@ -1,0 +1,6 @@
+{
+  "92460": {
+    "minLevel": 1,
+    "evidence": "ATT .contrib/.db/forever/zones/zephras isle.lua explicitly sets lvl=1; user identifies Coming of Age as the first starter quest on Zephras, 2026-10-02. Other eligibility conditions are not independently certified."
+  }
+}

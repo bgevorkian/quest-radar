@@ -1,0 +1,17 @@
+## Interface: 16001
+## Title: QuestRadar
+## Notes: Задания и городские службы на карте WoW Forever.
+## Version: 0.2.14
+## IconAtlas: QuestNormal
+## AddonCompartmentFunc: QuestRadar_OpenSettings
+## SavedVariablesPerCharacter: QuestRadarDB, QuestRadarSettings, QuestRadarObservations, QuestRadarUnknownQuests, QuestRadarServiceObservations, QuestRadarBugReports
+
+Data.lua
+ServiceData.lua
+Rules.lua
+Services.lua
+Feedback.lua
+Map.lua
+Pins.xml
+Settings.lua
+QuestRadar.lua

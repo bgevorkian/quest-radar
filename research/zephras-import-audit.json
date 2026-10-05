@@ -1,0 +1,18 @@
+{
+  "scope": "All ordinary raw Zephras quests; acquisition levels, predecessors, AND/OR, class/race/faction, skills, alternatives, repeatable, giver/provider and coordinates. Does not prove server-side completeness.",
+  "rawQuests": 146,
+  "checkedRecords": 145,
+  "issues": [],
+  "remainingUncertain": [
+    {
+      "id": 94490,
+      "uncertain": [
+        "item-start"
+      ],
+      "mapped": true
+    }
+  ],
+  "withoutCoordinates": [
+    93459
+  ]
+}

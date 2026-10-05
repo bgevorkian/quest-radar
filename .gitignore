@@ -1,0 +1,8 @@
+/upstream/
+/*.zip
+__pycache__/
+*.py[cod]
+/research/*
+!/research/import-summary.json
+!/research/service-import-summary.json
+!/research/zephras-import-audit.json

@@ -1,0 +1,24 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Frame name="QuestRadarPinTemplate" mixin="QuestRadarPinMixin" enableMouse="true" virtual="true">
+        <Size x="22" y="22"/>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Texture" atlas="QuestNormal">
+                    <Size x="22" y="22"/>
+                    <Anchors><Anchor point="CENTER"/></Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+    </Frame>
+    <Frame name="QuestRadarServicePinTemplate" mixin="QuestRadarServicePinMixin" enableMouse="true" virtual="true">
+        <Size x="18" y="18"/>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Texture">
+                    <Size x="18" y="18"/>
+                    <Anchors><Anchor point="CENTER"/></Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+    </Frame>
+</Ui>
