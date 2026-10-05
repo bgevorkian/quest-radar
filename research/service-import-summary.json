@@ -3,8 +3,8 @@
     "WaypointTracker": "954e0fe5f9f46d29205b1b9fa09a5c12e96c728f",
     "ATT": "788f116745f31e5b2da7171881919f3c44610140"
   },
-  "entities": 1445,
-  "points": 1944,
+  "entities": 1446,
+  "points": 1945,
   "maps": 50,
   "categories": {
     "auctioneer": 29,
@@ -15,7 +15,7 @@
     "innkeeper": 47,
     "mailbox": 80,
     "professionTrainer": 91,
-    "repair": 304,
+    "repair": 305,
     "stablemaster": 46,
     "trainer": 9,
     "vendor": 582
@@ -209,5 +209,5 @@
   "geometrySource": "https://raw.githubusercontent.com/Questie/QuestieDB/9d39232dab48e35811a7cc02473c2f4e42b62ab6/data/Forever/conversion.json",
   "limitations": "Classic-derived locations are reprojected, not verified against server spawns. ATT role comments do not cover every trainer. Community observations take precedence on their maps.",
   "correctionsFile": "data/service-corrections.json",
-  "correctionsCount": 45
+  "correctionsCount": 46
 }

@@ -154,3 +154,56 @@ toc=(Path(__file__).parents[1]/'QuestRadar/QuestRadar.toc').read_text()
 assert '## AddonCompartmentFunc: QuestRadar_OpenSettings' in toc
 assert '## IconAtlas: QuestNormal' in toc
 print('PASS: native addon menu callback opens settings; standalone minimap button absent')
+
+# Export must be compact without mutating old saves or losing differing contexts.
+lua.execute(r'''
+StaticPopupDialogs={}
+function StaticPopup_Show(key) popupKey=key end
+local sharedQuest={revision='quest-r1',questIDs=4000}
+local sharedService={revisions={ATT='att-r1',WaypointTracker='wt-r1'},entities=1000}
+for _,entry in pairs(QuestRadarServiceObservations) do
+ entry.questData=sharedQuest;entry.serviceData=sharedService
+end
+QuestRadarObservations={
+ {questID=1,npcID=2,mapID=2521,x=.5,y=.5,level=10,time=10},
+ {questID=1,npcID=2,mapID=2521,x=.5,y=.5,level=10,time=11},
+ {questID=1,npcID=2,mapID=2521,x=.5,y=.5,level=11,time=12},
+}
+ns.GetObservations=function()return QuestRadarObservations end
+ns.LastMapReport={quests={{id=42,status='hidden'}}}
+ns.LastServiceReport={points=2}
+QuestRadarUnknownQuests={[777]={questID=777}}
+local r=ns.BuildReport(false)
+assert(r.format==2 and r.map==nil and r.api==nil and r.services==nil)
+assert(#r.observations==2 and r.observations[1].time==11)
+assert(#QuestRadarObservations==3 and QuestRadarObservations[1].time==10)
+assert(#r.serviceObservations==1 and #r.serviceObservations[1].kinds==2)
+assert(#r.sources==1 and r.sources[1].quests=='quest-r1')
+assert(r.serviceObservations[1].questData==nil)
+assert(QuestRadarServiceObservations['999:repair'].questData==sharedQuest)
+QuestRadarServiceObservations['999:repair'].time=1001
+assert(#ns.BuildReport(false).serviceObservations==2, 'Different visits must retain separate evidence')
+QuestRadarServiceObservations['999:repair'].questData={revision='quest-r2'}
+assert(#ns.BuildReport(false).sources==2, 'Old source versions must survive export')
+assert(ns.BuildReport(true).map==ns.LastMapReport)
+local settings={enabled=false,services=true}
+QuestRadarSettings=settings
+SlashCmdList.QUESTRADAR('report')
+local button
+for _,f in ipairs(frames) do if f.text=='Очистить собранные записи…' then button=f end end
+assert(button);button:OnClick()
+assert(popupKey=='QUESTRADAR_CLEAR_COLLECTED')
+assert(#QuestRadarObservations==3 and QuestRadarUnknownQuests[777], 'Opening/cancelling confirmation must not delete data')
+StaticPopupDialogs[popupKey].OnAccept()
+assert(next(QuestRadarObservations)==nil and next(QuestRadarServiceObservations)==nil)
+assert(next(QuestRadarUnknownQuests)==nil and next(QuestRadarBugReports)==nil)
+assert(QuestRadarDB==nil and QuestRadarSettings==settings and settings.enabled==false)
+-- Clear really ends the old report; the empty export retains useful version context.
+assert(#ns.BuildReport(false).observations==0 and #ns.BuildReport(false).serviceObservations==0)
+-- Recording resumes normally after cleanup.
+for _,f in ipairs(frames) do
+ if f.OnEvent and f~=frames[4] then f:OnEvent('PLAYER_INTERACTION_MANAGER_FRAME_SHOW',5) end
+end
+assert(QuestRadarServiceObservations['999:vendor'])
+''')
+print('PASS: compact export, safe deduplication, version provenance, cleanup confirmation/button, settings retained and collection resumes')

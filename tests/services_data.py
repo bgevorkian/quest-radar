@@ -49,3 +49,9 @@ assert len(entries[257020].points)==1 and entries[257020].points[1][2]==.432
 assert entries[251905].nameRU=='Зеррил Нежный Ветерок'
 assert 'repair' in list(entries[252479].categories.values())
 print('PASS: Zephras trainers, innkeepers, repair and corrected NPC roles/locations')
+
+assert entries[256507].nameRU=='Беланн Древо Ветров'
+assert list(entries[256507].categories.values())==['repair']
+assert entries[256507].faction=='H'
+assert entries[256507].points[1][1]==2521 and abs(entries[256507].points[1][2]-.628973)<1e-8
+print('PASS: user-observed staff vendor/repair location and conservative faction')

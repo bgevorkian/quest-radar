@@ -850,6 +850,25 @@
       "role": "Верховая езда",
       "evidence": "Forever creaturecache.wdb build 70205: Смотритель стойл и учитель верховой езды",
       "reason": "Explicit dual service title; preserve imported coordinates."
+    },
+    {
+      "id": 256507,
+      "name": "Belann Windwood",
+      "nameRU": "Беланн Древо Ветров",
+      "faction": "H",
+      "categories": [
+        "vendor",
+        "repair"
+      ],
+      "points": [
+        [
+          2521,
+          0.628973,
+          0.774072
+        ]
+      ],
+      "evidence": "User QuestRadar 0.2.15 report, Forever build 70205, 2026-10-05, serviceObservations 256507:vendor and 256507:repair, time 1791211370.",
+      "reason": "Trade window and CanMerchantRepair confirmed both services for Horde. Coordinates are the player position during interaction, approximate NPC location. Alliance availability not established. NPC tooltip: Торговец посохами."
     }
   ]
 }

@@ -3,7 +3,7 @@ ns = ns or {}
 local command = "qradar"
 local frame = CreateFrame("Frame")
 local active, serial = nil, 0
-local window, edit
+local window, edit, diagnostics
 local bugWindow, bugContext, bugText, bugLocation, bugChoice, bugChecks
 local function say(text) print("|cff88ddff" .. addon .. ":|r " .. text) end
 local function call(namespace, method, ...)
@@ -20,7 +20,14 @@ local function dump(value, depth)
     if depth > 8 then return '"<depth limit>"' end
     local keys, out = {}, {}
     for key in pairs(value) do keys[#keys + 1] = key end
-    table.sort(keys, function(a, b) return tostring(a) < tostring(b) end)
+    table.sort(keys, function(a, b) if type(a)=="number" and type(b)=="number" then return a<b end
+        return tostring(a) < tostring(b) end)
+    local flat={}
+    for _,key in ipairs(keys) do
+        if type(value[key])=="table" then flat=nil;break end
+        flat[#flat+1]="["..dump(key).."] = "..dump(value[key])
+    end
+    if flat then return "{ "..table.concat(flat,", ").." }" end
     for _, key in ipairs(keys) do
         out[#out + 1] = string.rep("  ", depth + 1) .. "[" .. dump(key) .. "] = " .. dump(value[key], depth + 1)
     end
@@ -54,7 +61,79 @@ local function snapshot(reason)
     local count = result.status == "ok" and type(result.value) == "table" and #result.value
     say(reason .. ": " .. (count and (count .. " записей API") or result.status))
 end
-local function showReport()
+-- Export copies only: old SavedVariables stay intact until explicit cleanup.
+function ns.BuildReport(full)
+    local sources,sourceIDs={},{}
+    local function compact(value)
+        if type(value)~="table" then return value end
+        local out={}
+        for k,v in pairs(value) do
+            if k~="questData" and k~="serviceData" then out[k]=compact(v) end
+        end
+        if value.questData or value.serviceData then
+            local source={quests=value.questData and value.questData.revision,
+                services=value.serviceData and value.serviceData.revisions}
+            local key=dump(source)
+            if not sourceIDs[key] then sources[#sources+1]=source;sourceIDs[key]=#sources end
+            out.source=sourceIDs[key]
+        end
+        return out
+    end
+    local report={format=2,context=compact(ns.CaptureReportContext and ns.CaptureReportContext()),
+        observations={},unknownQuests=compact(QuestRadarUnknownQuests or {}),
+        serviceObservations={},bugs=compact(QuestRadarBugReports or {}),sources=sources}
+    local seen={}
+    for _,entry in ipairs(ns.GetObservations and ns.GetObservations() or {}) do
+        local row=compact(entry)
+        local stamp=row.time;row.time=nil
+        local key=dump(row)
+        if seen[key] then
+            seen[key].time=math.max(seen[key].time or 0,stamp or 0)
+        else
+            row.time=stamp;seen[key]=row;report.observations[#report.observations+1]=row
+        end
+    end
+    -- Merge services only when location, time and every other context field match.
+    -- Different visits/positions must never inherit each other's service evidence.
+    seen={}
+    local keys={}
+    for key in pairs(QuestRadarServiceObservations or {}) do keys[#keys+1]=key end
+    table.sort(keys)
+    for _,key in ipairs(keys) do
+        local row=compact(QuestRadarServiceObservations[key])
+        local kind=row.kind;row.kind=nil
+        local identity=dump(row)
+        if not seen[identity] then
+            row.kinds={};seen[identity]=row
+            report.serviceObservations[#report.serviceObservations+1]=row
+        end
+        if kind then table.insert(seen[identity].kinds,kind) end
+    end
+    if full then
+        report.map=ns.LastMapReport;report.services=ns.LastServiceReport;report.api=saved()
+    end
+    return report
+end
+local function clearCollected()
+    serial=serial+1;active=nil
+    QuestRadarDB=nil
+    QuestRadarObservations={}
+    QuestRadarUnknownQuests={}
+    QuestRadarServiceObservations={}
+    QuestRadarBugReports={}
+    if window then window:Hide() end
+    say("Собранные записи очищены. Новые встречи будут записываться дальше. /reload сохранит очистку.")
+end
+function ns.ConfirmClearCollected()
+    StaticPopupDialogs["QUESTRADAR_CLEAR_COLLECTED"]={
+        text="Очистить все собранные записи QuestRadar у этого персонажа?\n\nСначала отправьте или сохраните отчёт. Будут удалены наблюдения заданий и NPC, сообщения об ошибках и диагностика. Настройки и база отметок останутся.",
+        button1="Очистить",button2="Отмена",OnAccept=clearCollected,
+        timeout=0,whileDead=true,hideOnEscape=true,preferredIndex=3,
+    }
+    StaticPopup_Show("QUESTRADAR_CLEAR_COLLECTED")
+end
+local function showReport(full)
+
     if not window then
         window = CreateFrame("Frame", addon .. "Report", UIParent, "BasicFrameTemplateWithInset")
         window:SetSize(720, 480)
@@ -68,7 +147,7 @@ local function showReport()
         window.TitleText:SetText("Отчёт для отправки: Ctrl+A, Ctrl+C")
         local scroll = CreateFrame("ScrollFrame", nil, window, "UIPanelScrollFrameTemplate")
         scroll:SetPoint("TOPLEFT", 14, -36)
-        scroll:SetPoint("BOTTOMRIGHT", -32, 14)
+        scroll:SetPoint("BOTTOMRIGHT", -32, 52)
         edit = CreateFrame("EditBox", nil, scroll)
         edit:SetMultiLine(true)
         edit:SetFontObject(ChatFontNormal)
@@ -76,13 +155,22 @@ local function showReport()
         edit:SetAutoFocus(false)
         edit:SetScript("OnEscapePressed", function() window:Hide() end)
         scroll:SetScrollChild(edit)
+        local clear=CreateFrame("Button",nil,window,"UIPanelButtonTemplate")
+        clear:SetSize(230,24)
+        clear:SetPoint("BOTTOMLEFT",14,14)
+        clear:SetText("Очистить собранные записи…")
+        clear:SetScript("OnClick",ns.ConfirmClearCollected)
+        diagnostics=CreateFrame("Button",nil,window,"UIPanelButtonTemplate")
+        diagnostics:SetSize(200,24)
+        diagnostics:SetPoint("LEFT",clear,"RIGHT",12,0)
+        diagnostics:SetScript("OnClick",function()showReport(not window.full)end)
         UISpecialFrames[#UISpecialFrames + 1] = addon .. "Report"
     end
+    window.full=not not full
+    diagnostics:SetText(full and "Обычный отчёт" or "Полная диагностика")
     window:Show()
-    edit:SetText(dump({format=1,context=ns.CaptureReportContext and ns.CaptureReportContext(),
-        map=ns.LastMapReport,services=ns.LastServiceReport,api=saved(),
-        observations=ns.GetObservations and ns.GetObservations(),unknownQuests=QuestRadarUnknownQuests,
-        serviceObservations=QuestRadarServiceObservations,bugs=QuestRadarBugReports}))
+    window.TitleText:SetText(full and "Полная диагностика: Ctrl+A, Ctrl+C" or "Отчёт для отправки: Ctrl+A, Ctrl+C")
+    edit:SetText(dump(ns.BuildReport(full)))
     edit:SetFocus()
     edit:HighlightText()
 end
@@ -158,7 +246,7 @@ local function scan(mapID)
     active = { mapID = mapID, started = GetTime(), requests = 1 }
     local version, build, _, interface = GetBuildInfo()
     _G[addon .. "DB"] = {
-        addonVersion = "0.2.15", date = date("%Y-%m-%d %H:%M:%S"),
+        addonVersion = "0.2.16", date = date("%Y-%m-%d %H:%M:%S"),
         client = { version = version, build = build, interface = interface, locale = GetLocale() },
         mapID = mapID, mapInfo = call(C_Map, "GetMapInfo", mapID),
         player = { level = UnitLevel("player"), race = select(2, UnitRace("player")),
@@ -178,7 +266,7 @@ local function scan(mapID)
             if delay == 8 then
                 active = nil
                 say("Готово. /qradar report — скопировать отчёт. Разговоры с NPC тоже сохраняются.")
-                showReport()
+                showReport(true)
             end
         end)
     end
@@ -208,18 +296,20 @@ _G["SLASH_" .. addon:upper() .. "1"] = "/" .. command
 SlashCmdList[addon:upper()] = function(message)
     message = strtrim(message or "")
     if message == "report" then showReport()
+    elseif message == "report full" then showReport(true)
+    elseif message == "clearall" then ns.ConfirmClearCollected()
     elseif message == "bug" then ns.ShowBugReport()
     elseif message == "clear" then
         serial = serial + 1
         active = nil
         _G[addon .. "DB"] = nil
         if window then window:Hide() end
-        say("Отчёт удалён.")
+        say("Диагностика API очищена. Собранные записи сохранены.")
     elseif message == "" then ns.Toggle()
     elseif message == "settings" then ns.OpenSettings()
     elseif message == "uncertain" then ns.ToggleUncertain()
     elseif message == "scan" or tonumber(message) then scan(tonumber(message))
-    else say("/qradar — отметки; uncertain — сомнительные; scan — проверка API; report — выгрузить отчёт; bug — сообщить об ошибке; clear — очистить отчёт API.") end
+    else say("/qradar — отметки; uncertain — сомнительные; scan — проверка API; report — выгрузить отчёт; bug — сообщить об ошибке; clear — очистить отчёт API; clearall — очистить собранное с подтверждением.") end
 end
 
 -- The native AddOn Compartment invokes this callback from TOC metadata.

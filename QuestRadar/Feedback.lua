@@ -31,7 +31,7 @@ function ns.CaptureReportContext()
     if position then x,y=position:GetXY() end
     local version,build=GetBuildInfo()
     local mapInfo=mapID and call(C_Map,"GetMapInfo",mapID)
-    return {time=time(),addonVersion="0.2.15",client=version,build=build,locale=GetLocale(),
+    return {time=time(),addonVersion="0.2.16",client=version,build=build,locale=GetLocale(),
         mapID=mapID,mapName=mapInfo and mapInfo.name,x=x,y=y,npc=npc("npc") or npc("target"),
         viewedMapID=WorldMapFrame and WorldMapFrame:IsShown() and WorldMapFrame:GetMapID() or nil,
         player={level=UnitLevel("player"),class=select(3,UnitClass("player")),race=select(3,UnitRace("player")),faction=UnitFactionGroup("player")},

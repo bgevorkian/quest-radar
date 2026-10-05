@@ -222,7 +222,7 @@ local function captureAccepted(id)
     local version,build=GetBuildInfo()
     local entry={questID=id,title=safe(C_QuestLog,"GetTitleForQuestID",id) or (offer and offer.title),
         time=time(),mapID=mapID,x=x,y=y,level=ctx.level,class=ctx.class,race=ctx.race,faction=ctx.faction,
-        addonVersion="0.2.15",dataRevision=ns.DataInfo and ns.DataInfo.revision,client=version,build=build,
+        addonVersion="0.2.16",dataRevision=ns.DataInfo and ns.DataInfo.revision,client=version,build=build,
         note="Позиция игрока при принятии; условия открытия неизвестны"}
     -- An offer is evidence about this quest; the current NPC alone is not.
     if offer then entry.offeredByNPC=offer.npcID end
