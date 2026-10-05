@@ -194,6 +194,7 @@ ns.Services={
  {id=5,name='Shop',faction='H',categories={'vendor'},points={{2521,.8,.9}}},
 }
 Enum={MinimapTrackingFilter={TrainerProfession=128,TrainerClass=8388608,Banker=2,VendorReagent=256}}
+C_Texture={GetAtlasInfo=function(name)return ({profession=true,class=true,banker=true})[name] end}
 local ids={128,8388608,2,256}
 C_Minimap={GetNumTrackingTypes=function()return #ids end,
  GetTrackingFilter=function(i)return {filterID=ids[i]}end,
@@ -209,7 +210,12 @@ local service
 for _,p in ipairs(WorldMapFrame.pins)do
  if p.template=='QuestRadarServicePinTemplate' and p.x==.2 then service=p end
 end
-assert(service.Texture.texture==1001, 'Use the native minimap texture even when tracking is disabled')
+assert(service.Texture.atlas=='profession', 'Use the client map atlas, independent of tracking-menu textures')
+for _,p in ipairs(WorldMapFrame.pins)do
+ if p.template=='QuestRadarServicePinTemplate' and p.x==.8 then
+  assert(p.Texture.texture=='Interface\\Cursor\\Buy', 'Generic vendors must not use the reagent icon')
+ end
+end
 service:OnMouseEnter()
 assert(GameTooltip.lines[1]=='Кузнец' and GameTooltip.lines[2]=='Учитель кузнечного дела')
 service.GetMap=function()return WorldMapFrame end
@@ -221,9 +227,11 @@ QuestRadarSettings.services=true
 WorldMapFrame.mapID=1458;ns.Refresh();assert(#WorldMapFrame.pins==0)
 WorldMapFrame.mapID=2521
 C_Minimap=nil;ns.ResetServiceTextures();ns.Refresh()
+assert(ns.LastServiceReport.points==2, "Map icons do not depend on minimap tracking filters")
+C_Texture=nil;ns.ResetServiceTextures();ns.Refresh()
 assert(ns.LastServiceReport.points==0 and ns.LastServiceReport.missingIcons.professionTrainer)
-C_Minimap={GetNumTrackingTypes=function()error('tracking failed')end,GetTrackingFilter=function()end,GetTrackingInfo=function()end}
+C_Texture={GetAtlasInfo=function()error('atlas failed')end}
 ns.ResetServiceTextures();ns.Refresh()
-assert(ns.LastServiceReport.iconAPIError:find('tracking failed',1,true))
+assert(ns.LastServiceReport.iconAPIError:find('atlas failed',1,true))
 ''')
 print('PASS: native service icons, exact trainer tooltip, faction/class filtering, layer toggles and missing API')

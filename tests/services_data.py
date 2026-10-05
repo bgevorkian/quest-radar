@@ -38,3 +38,14 @@ assert any(p[1]==1458 and abs(p[2]-.473)<1e-8 for p in entries[260093].points.va
 # The original 4598 location at 56/37.5 is replaced on that map by the Forever sighting.
 assert all(abs(p[2]-.559)<1e-8 and abs(p[3]-.369)<1e-8 for p in entries[4598].points.values() if p[1]==1458)
 print('PASS: shipped service schema, provenance counts, map coverage, Forever trainer and location overrides')
+
+# Zephras used to contain only generic vendors. Preserve its actual services.
+zone=[e for e in entries.values() if any(p[1]==2521 for p in e.points.values())]
+assert sum('classTrainer' in list(e.categories.values()) for e in zone)>=17
+assert sum('professionTrainer' in list(e.categories.values()) for e in zone)>=24
+assert entries[255940].categories[1]=='innkeeper'
+assert entries[257020].role=='Наложение чар'
+assert len(entries[257020].points)==1 and entries[257020].points[1][2]==.432
+assert entries[251905].nameRU=='Зеррил Нежный Ветерок'
+assert 'repair' in list(entries[252479].categories.values())
+print('PASS: Zephras trainers, innkeepers, repair and corrected NPC roles/locations')

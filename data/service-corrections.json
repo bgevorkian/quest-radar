@@ -1,0 +1,855 @@
+{
+  "clientNameBuild": 70205,
+  "limitations": "Guide destinations and community locations need game verification. Not complete coverage; no invented bank, auction or mailbox positions.",
+  "entries": [
+    {
+      "id": 251964,
+      "name": "Blademaster Ren",
+      "nameRU": "",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.4366,
+          0.2413
+        ]
+      ],
+      "classID": 1,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 251373,
+      "name": "Xyton Silverwind",
+      "nameRU": "",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.41653,
+          0.23337
+        ]
+      ],
+      "classID": 11,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 251379,
+      "name": "Dorii Brightwhisper",
+      "nameRU": "",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.4155,
+          0.23670000000000002
+        ]
+      ],
+      "classID": 8,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 251374,
+      "name": "Windshaper Boro",
+      "nameRU": "Ваятель Ветра Боро",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.4279,
+          0.2357
+        ]
+      ],
+      "classID": 7,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 251376,
+      "name": "Tai'ree Farsight",
+      "nameRU": "",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.42467,
+          0.23731000000000002
+        ]
+      ],
+      "classID": 3,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254082,
+      "name": "Aarnor Galestrike",
+      "nameRU": "Аарнор Удар Шторма",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.43454,
+          0.44872
+        ]
+      ],
+      "classID": 7,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254089,
+      "name": "Coriella Calmbreeze",
+      "nameRU": "Кориэлла Спокойный Бриз",
+      "faction": "",
+      "categories": [
+        "innkeeper"
+      ],
+      "points": [
+        [
+          2521,
+          0.4302,
+          0.4324
+        ]
+      ],
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254087,
+      "name": "Miriaan Mistblade",
+      "nameRU": "Мириаан Клинок Тумана",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.4316,
+          0.4326
+        ]
+      ],
+      "classID": 4,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254088,
+      "name": "Corsan Earthrazer",
+      "nameRU": "Корсан Дробитель Земли",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.4495,
+          0.451
+        ]
+      ],
+      "classID": 1,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254084,
+      "name": "Elayaa Easewind",
+      "nameRU": "Элайя Тонкий Ветер",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.45263,
+          0.44236
+        ]
+      ],
+      "classID": 3,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254081,
+      "name": "Naeluna Swiftmend",
+      "nameRU": "Наэлуна Быстрое Исцеление",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.45154000000000005,
+          0.44217
+        ]
+      ],
+      "classID": 11,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254086,
+      "name": "Shenaan Spellwind",
+      "nameRU": "Шенаан Магический Ветер",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.451,
+          0.4586
+        ]
+      ],
+      "classID": 8,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 255940,
+      "name": "Donaal Downbreeze",
+      "nameRU": "Донаал Тихий Бриз",
+      "faction": "",
+      "categories": [
+        "innkeeper"
+      ],
+      "points": [
+        [
+          2521,
+          0.6218,
+          0.72616
+        ]
+      ],
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252382,
+      "name": "Sessaria Skystride",
+      "nameRU": "Сессария Небесная Странница",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.58313,
+          0.78499
+        ]
+      ],
+      "classID": 7,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252377,
+      "name": "Seena Skybreaker",
+      "nameRU": "Сиина Небовержица",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.5989,
+          0.7287
+        ]
+      ],
+      "classID": 1,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252359,
+      "name": "Lotheluum Starbreeze",
+      "nameRU": "Лотелум Звездный Ветер",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.63983,
+          0.75093
+        ]
+      ],
+      "classID": 11,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252379,
+      "name": "Eltheen Nightbreeze",
+      "nameRU": "Элтин Ночной Бриз",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.599,
+          0.7248
+        ]
+      ],
+      "classID": 4,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252389,
+      "name": "Quel'ana Quickgale",
+      "nameRU": "Кве'лана Быстрый Порыв",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.59571,
+          0.72639
+        ]
+      ],
+      "classID": 3,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 254411,
+      "name": "Quel'dora Quickgale",
+      "nameRU": "Кель'дора Стремительный Шторм",
+      "faction": "",
+      "categories": [
+        "trainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.59605,
+          0.72527
+        ]
+      ],
+      "role": "Дрессировщик питомцев",
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 252373,
+      "name": "Anathamaas Aetherwind",
+      "nameRU": "Анатамаас Эфирный Ветер",
+      "faction": "",
+      "categories": [
+        "classTrainer"
+      ],
+      "points": [
+        [
+          2521,
+          0.6591,
+          0.8058
+        ]
+      ],
+      "classID": 8,
+      "evidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua",
+      "reason": "Explicit training/bind step with NPC ID and destination; Russian name from client creature cache."
+    },
+    {
+      "id": 257019,
+      "name": "Nyassa Swiftdraught",
+      "nameRU": "Ниасса Быстрый Вар",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Алхимия",
+      "points": [
+        [
+          2521,
+          0.438,
+          0.436
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 253004,
+      "name": "Iaadaria Bitterwind",
+      "nameRU": "Иаадария Горький Ветер",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Алхимия",
+      "points": [
+        [
+          2521,
+          0.662,
+          0.796
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257005,
+      "name": "Valiena Swiftgale",
+      "nameRU": "Валиена Быстрый Ветер",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Алхимия",
+      "points": [
+        [
+          2521,
+          0.592,
+          0.762
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251913,
+      "name": "Aedi Thriceforged",
+      "nameRU": "Эди Трикованый",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Кузнечное дело",
+      "points": [
+        [
+          2521,
+          0.448,
+          0.444
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 252479,
+      "name": "Daeann Steelwind",
+      "nameRU": "Дайеанн Стальной Ветер",
+      "faction": "",
+      "categories": [
+        "professionTrainer",
+        "repair"
+      ],
+      "role": "Кузнечное дело",
+      "points": [
+        [
+          2521,
+          0.654,
+          0.802
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache.",
+      "repairEvidence": "https://github.com/RestedXP/RXPGuides/blob/1ec30e9625c72cf0020e04c9922e16b8ab3a33f4/Guides/Forever/RestedXP-Skyborne.lua#L4009-L4015"
+    },
+    {
+      "id": 257020,
+      "name": "Nasalanna Windsinger",
+      "nameRU": "Насаланна Певица Ветра",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Наложение чар",
+      "points": [
+        [
+          2521,
+          0.432,
+          0.432
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257004,
+      "name": "Eaysaa Brightgust",
+      "nameRU": "Эайса Яркий Порыв",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Наложение чар",
+      "points": [
+        [
+          2521,
+          0.592,
+          0.762
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251684,
+      "name": "Strange Hermit",
+      "nameRU": "",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Инженерное дело",
+      "points": [
+        [
+          2521,
+          0.54,
+          0.39
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251993,
+      "name": "Indari Sunseam",
+      "nameRU": "Индари Солнечное Кружево",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Кожевничество",
+      "points": [
+        [
+          2521,
+          0.446,
+          0.446
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 252376,
+      "name": "Emerii Tallgust",
+      "nameRU": "Эмерии Высший Порыв",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Кожевничество",
+      "points": [
+        [
+          2521,
+          0.638,
+          0.806
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251991,
+      "name": "Taleen Shimmerthread",
+      "nameRU": "Талин Сверкающая Нить",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Портняжное дело",
+      "points": [
+        [
+          2521,
+          0.448,
+          0.442
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 252380,
+      "name": "Othesia Evengale",
+      "nameRU": "Отезия Вечерняя Буря",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Портняжное дело",
+      "points": [
+        [
+          2521,
+          0.644,
+          0.81
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257021,
+      "name": "Halassa Fernbreeze",
+      "nameRU": "Халасса Лиственный Бриз",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Травничество",
+      "points": [
+        [
+          2521,
+          0.43,
+          0.436
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 254345,
+      "name": "Syriel Nightrain",
+      "nameRU": "Сириэль Ночной Дождь",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Травничество",
+      "points": [
+        [
+          2521,
+          0.578,
+          0.754
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257022,
+      "name": "Messana Crestwind",
+      "nameRU": "Мессана Поднебесныый Ветер",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Горное дело",
+      "points": [
+        [
+          2521,
+          0.448,
+          0.444
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 252388,
+      "name": "Halavuul Cragwind",
+      "nameRU": "Халавуул Скалистый Ветер",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Горное дело",
+      "points": [
+        [
+          2521,
+          0.654,
+          0.804
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257024,
+      "name": "Mendalass Tattermend",
+      "nameRU": "Мендаласс Живительный Эликсир",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Снятие шкур",
+      "points": [
+        [
+          2521,
+          0.432,
+          0.436
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257003,
+      "name": "Ishlee Breezewhisper",
+      "nameRU": "Ишли Шепот Бриза",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Снятие шкур",
+      "points": [
+        [
+          2521,
+          0.596,
+          0.76
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251905,
+      "name": "Zerril Softbreeze",
+      "nameRU": "Зеррил Нежный Ветерок",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Кулинария",
+      "points": [
+        [
+          2521,
+          0.438,
+          0.438
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257006,
+      "name": "Nyalah Brightfire",
+      "nameRU": "Ниала Яркое Пламя",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Кулинария",
+      "points": [
+        [
+          2521,
+          0.606,
+          0.726
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257018,
+      "name": "Naleeia Tattermend",
+      "nameRU": "Налейя Живительный Эликсир",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Первая помощь",
+      "points": [
+        [
+          2521,
+          0.43,
+          0.462
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257007,
+      "name": "Melasa Fairmend",
+      "nameRU": "Меласа Чистый Эликсир",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Первая помощь",
+      "points": [
+        [
+          2521,
+          0.63,
+          0.726
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 251992,
+      "name": "Fenn Fairweather",
+      "nameRU": "Фенн Чистое Небо",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Рыбная ловля",
+      "points": [
+        [
+          2521,
+          0.45,
+          0.484
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 257008,
+      "name": "Baelann Swiftcurrent",
+      "nameRU": "Баэланн Быстрый Поток",
+      "faction": "",
+      "categories": [
+        "professionTrainer"
+      ],
+      "role": "Рыбная ловля",
+      "points": [
+        [
+          2521,
+          0.632,
+          0.756
+        ]
+      ],
+      "evidence": "https://www.wowhead.com/forever/guide/zephras-isle-zone-overview",
+      "reason": "Trainer role and location listed in zone guide; Russian name and subtitle checked against creature cache."
+    },
+    {
+      "id": 265756,
+      "name": "Genn Fairweather",
+      "nameRU": "Генн Чистое Небо",
+      "faction": "",
+      "categories": [
+        "stablemaster",
+        "professionTrainer"
+      ],
+      "role": "Верховая езда",
+      "evidence": "Forever creaturecache.wdb build 70205: Смотритель стойл и учитель верховой езды",
+      "reason": "Explicit dual service title; preserve imported coordinates."
+    }
+  ]
+}

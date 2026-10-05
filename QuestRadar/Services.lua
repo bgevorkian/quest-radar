@@ -29,27 +29,23 @@ local professionLabels={
     ["Рыбная ловля"]="Учитель рыбной ловли",["Первая помощь"]="Учитель первой помощи",
     ["Верховая езда"]="Учитель верховой езды",
 }
-local textures,textureError
-local function trackingTextures()
-    if textures then return textures end
-    textures={}
-    if C_Minimap and C_Minimap.GetNumTrackingTypes and C_Minimap.GetTrackingFilter and C_Minimap.GetTrackingInfo then
-        local ok,reason=pcall(function()
-            for i=1,C_Minimap.GetNumTrackingTypes() do
-                local filter=C_Minimap.GetTrackingFilter(i)
-                local info=C_Minimap.GetTrackingInfo(i)
-                if filter and filter.filterID and info and info.texture then textures[filter.filterID]=info.texture end
-            end
-        end)
-        if not ok then textureError=tostring(reason) end
-    end
-    return textures
-end
-function ns.ResetServiceTextures()textures=nil;textureError=nil end
+-- Atlas names verified in Forever 1.60.1.70170 UiTextureAtlasMember.
+-- These are the map blips, not a generic vendor's tracking-menu category.
+local atlasNames={banker="banker",auctioneer="auctioneer",classTrainer="class",
+    professionTrainer="profession",trainer="profession",repair="repair",mailbox="mailbox",
+    innkeeper="innkeeper",flight="flightmaster",stablemaster="stablemaster",battlemaster="battlemaster"}
+local textures,textureError={}
+function ns.ResetServiceTextures()textures={};textureError=nil end
 local function icon(category)
-    local enum=Enum and Enum.MinimapTrackingFilter
-    local key=categories[category][2]
-    return enum and trackingTextures()[enum[key]]
+    -- Ordinary shops have no shared minimap tracking category. Use Blizzard's
+    -- purchase cursor instead of falsely identifying every shop as reagents.
+    if category=="vendor" then return {texture="Interface\\Cursor\\Buy"} end
+    if textures[category]~=nil then return textures[category] or nil end
+    local atlas=atlasNames[category]
+    local ok,info=pcall(function()return C_Texture and C_Texture.GetAtlasInfo(atlas)end)
+    if not ok then textureError=tostring(info) end
+    textures[category]=ok and info and {atlas=atlas} or false
+    return textures[category] or nil
 end
 local function name(entry)
     if GetLocale()=="ruRU" and entry.nameRU and entry.nameRU~="" then return entry.nameRU end
@@ -70,7 +66,8 @@ function ns.InitServicePins()
     function QuestRadarServicePinMixin:OnAcquired(group)
         self.group=group
         self:SetPosition(group.x,group.y)
-        self.Texture:SetTexture(group.texture)
+        if group.texture.atlas then self.Texture:SetAtlas(group.texture.atlas)
+        else self.Texture:SetTexture(group.texture.texture) end
     end
     function QuestRadarServicePinMixin:OnMouseUpAction(button)
         if button=="LeftButton" and IsShiftKeyDown() then

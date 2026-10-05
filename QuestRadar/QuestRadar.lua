@@ -158,7 +158,7 @@ local function scan(mapID)
     active = { mapID = mapID, started = GetTime(), requests = 1 }
     local version, build, _, interface = GetBuildInfo()
     _G[addon .. "DB"] = {
-        addonVersion = "0.2.14", date = date("%Y-%m-%d %H:%M:%S"),
+        addonVersion = "0.2.15", date = date("%Y-%m-%d %H:%M:%S"),
         client = { version = version, build = build, interface = interface, locale = GetLocale() },
         mapID = mapID, mapInfo = call(C_Map, "GetMapInfo", mapID),
         player = { level = UnitLevel("player"), race = select(2, UnitRace("player")),
